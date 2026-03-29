@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラッキーラビット 体験入団パンフレット</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Zen Maru Gothic', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 leading-relaxed pb-20">
+
+    <!-- Header / Hero -->
+    <header class="relative bg-blue-600 text-white p-8 text-center overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 flex flex-wrap pointer-events-none">
+            <!-- Background pattern using emoji -->
+            <div class="p-2 text-4xl">🏐</div><div class="p-2 text-4xl">🐰</div><div class="p-2 text-4xl">🏐</div><div class="p-2 text-4xl">🐰</div>
+        </div>
+        <div class="relative z-10">
+            <p class="text-amber-300 font-bold tracking-widest mb-2 uppercase">Kuki Lucky Rabbit</p>
+            <h1 class="text-3xl md:text-5xl font-black mb-4">バレーボール体験会</h1>
+            <div class="inline-block bg-white text-blue-600 px-6 py-2 rounded-full font-bold text-xl mb-4 shadow-lg">
+                4月12日(日) 開催決定！
+            </div>
+            <div class="mt-4 flex justify-center items-center gap-2">
+                <span class="bg-amber-400 text-blue-900 px-3 py-1 rounded font-bold animate-bounce text-sm">スペシャルゲスト</span>
+                <p class="font-bold text-lg">志乃ちゃんがやってくる！✨</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-white sticky top-0 z-30 shadow-md border-b flex justify-around">
+        <button onclick="showTab('kids')" id="tab-kids-btn" class="flex-1 py-4 text-center font-bold border-b-4 border-blue-600 text-blue-600">
+            👧 キッズむけ
+        </button>
+        <button onclick="showTab('parents')" id="tab-parents-btn" class="flex-1 py-4 text-center font-bold border-b-4 border-transparent text-slate-500">
+            👨‍👩‍👧 保護者の方へ
+        </button>
+    </nav>
+
+    <main class="max-w-4xl mx-auto p-4 md:p-8">
+
+        <!-- KIDS SECTION -->
+        <section id="kids" class="tab-content active space-y-12">
+            
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-blue-600">いっしょにバレー、やらない？</h2>
+                <p class="text-slate-600 mt-2">新3年生・新4年生のみんな、あつまれ〜！</p>
+            </div>
+
+            <!-- Position Carousel/Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-2xl shadow-sm border-b-4 border-amber-400 text-center cursor-pointer hover:shadow-md transition-shadow" onclick="togglePosition('pos1')">
+                    <div class="text-4xl mb-2">🛡️</div>
+                    <h3 class="font-black text-slate-800">センター</h3>
+                    <p class="text-xs text-blue-600 font-bold">鉄壁の盾！</p>
+                    <div id="pos1" class="hidden text-xs mt-3 pt-3 border-t text-left text-slate-600">
+                        ネットの真ん中で「カベ」になってスパイクを防ぐよ！高いジャンプで相手を驚かせよう。
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border-b-4 border-blue-400 text-center cursor-pointer hover:shadow-md transition-shadow" onclick="togglePosition('pos2')">
+                    <div class="text-4xl mb-2">⚔️</div>
+                    <h3 class="font-black text-slate-800">レフト</h3>
+                    <p class="text-xs text-blue-600 font-bold">みんなの頼れるエース</p>
+                    <div id="pos2" class="hidden text-xs mt-3 pt-3 border-t text-left text-slate-600">
+                        チームで一番スパイクを打つ主役！苦しい時でも「まかせて！」と打ち抜くかっこいいポジション！
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border-b-4 border-emerald-400 text-center cursor-pointer hover:shadow-md transition-shadow" onclick="togglePosition('pos3')">
+                    <div class="text-4xl mb-2">🧙</div>
+                    <h3 class="font-black text-slate-800">セッター</h3>
+                    <p class="text-xs text-blue-600 font-bold">勝利の魔法使い</p>
+                    <div id="pos3" class="hidden text-xs mt-3 pt-3 border-t text-left text-slate-600">
+                        どんなボールも、打ちやすいトスに変えてスパイカーに届ける司令塔。チームのリーダーだ！
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border-b-4 border-rose-400 text-center cursor-pointer hover:shadow-md transition-shadow" onclick="togglePosition('pos4')">
+                    <div class="text-4xl mb-2">💠</div>
+                    <h3 class="font-black text-slate-800">リベロ</h3>
+                    <p class="text-xs text-blue-600 font-bold">守護神！</p>
+                    <div id="pos4" class="hidden text-xs mt-3 pt-3 border-t text-left text-slate-600">
+                        地面ギリギリのボールも拾いまくる守備のプロ！「ボールを落とさない」気持ちは誰にも負けない！
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border-b-4 border-purple-400 text-center cursor-pointer hover:shadow-md transition-shadow" onclick="togglePosition('pos5')">
+                    <div class="text-4xl mb-2">🥷</div>
+                    <h3 class="font-black text-slate-800">ライト</h3>
+                    <p class="text-xs text-blue-600 font-bold">変幻自在の忍者</p>
+                    <div id="pos5" class="hidden text-xs mt-3 pt-3 border-t text-left text-slate-600">
+                        どこからでも助けにいく器用なポジション。相手のスキを見つけて攻撃するよ。
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border-b-4 border-indigo-400 text-center cursor-pointer hover:shadow-md transition-shadow" onclick="togglePosition('pos6')">
+                    <div class="text-4xl mb-2">🤝</div>
+                    <h3 class="font-black text-slate-800">バック</h3>
+                    <p class="text-xs text-blue-600 font-bold">絆の柱</p>
+                    <div id="pos6" class="hidden text-xs mt-3 pt-3 border-t text-left text-slate-600">
+                        みんなの後ろをしっかり守って、チームがつながるように支える大切な役割だよ。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kids Goals -->
+            <div class="bg-amber-50 rounded-3xl p-6 border-2 border-amber-200">
+                <h3 class="text-xl font-black text-amber-700 mb-4 flex items-center">
+                    <span class="mr-2">🐰</span> ラビッ子の目標！
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="bg-white rounded-full h-6 w-6 flex items-center justify-center text-amber-500 font-bold mr-3 shrink-0 shadow-sm text-sm">1</span>
+                        <p class="text-slate-700 font-bold">元気にあいさつ・はっきりお返事！</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-white rounded-full h-6 w-6 flex items-center justify-center text-amber-500 font-bold mr-3 shrink-0 shadow-sm text-sm">2</span>
+                        <p class="text-slate-700 font-bold">苦しい時でも、弱ねをはかない強い心。</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-white rounded-full h-6 w-6 flex items-center justify-center text-amber-500 font-bold mr-3 shrink-0 shadow-sm text-sm">3</span>
+                        <p class="text-slate-700 font-bold">「ありがとう」を込めたパスをつなごう。</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-white rounded-full h-6 w-6 flex items-center justify-center text-amber-500 font-bold mr-3 shrink-0 shadow-sm text-sm">4</span>
+                        <p class="text-slate-700 font-bold">脱いだくつをそろえる、マナーのプロになろう。</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center p-6 bg-blue-600 text-white rounded-3xl shadow-lg">
+                <h3 class="text-xl font-black mb-2">途中でおうちに帰ってもOK！</h3>
+                <p class="text-sm opacity-90">「ちょっとだけ見たい」「やってみたい」だけでも大丈夫。遊びにきてね！</p>
+            </div>
+        </section>
+
+        <!-- PARENTS SECTION -->
+        <section id="parents" class="tab-content space-y-8">
+            
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-blue-700 mb-4 flex items-center">
+                    <span class="text-2xl mr-2">🧭</span> 指導の基本姿勢
+                </h2>
+                <div class="chart-container mb-6">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <p class="text-sm text-slate-600 mb-4">
+                    当団では「情熱・愛情・忍耐」を柱に、ただ技術を教えるだけでなく、生涯スポーツとしてバレーを楽しめる「人格形成」を大切にしています。
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-3 bg-slate-50 rounded-lg">
+                        <h4 class="font-bold text-sm text-blue-600">低学年（1〜3年）</h4>
+                        <p class="text-xs">まずはボール遊びを通して楽しさを知ることからスタート！</p>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg">
+                        <h4 class="font-bold text-sm text-blue-600">中学年（4年）</h4>
+                        <p class="text-xs">基本技術とルールを覚え、ゲームの進め方を理解します。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion for Documents -->
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200">
+                    <button class="w-full p-4 flex justify-between items-center font-bold text-slate-700 hover:bg-slate-50 transition-colors" onclick="toggleAccordion('acc1')">
+                        🛡️ 安心・安全への取り組み（申し合わせ）
+                        <span id="acc1-icon">＋</span>
+                    </button>
+                    <div id="acc1" class="hidden p-4 text-sm text-slate-600 bg-slate-50 border-t">
+                        <ul class="space-y-2">
+                            <li>・スポーツ安全保険への加入を徹底しています。</li>
+                            <li>・指導者と育成会が連帯責任で安全管理を行います。</li>
+                            <li>・近隣病院の当番医を常に把握し、迅速な応急処置体制を整えています。</li>
+                            <li>・保護者の皆様には、お子様の健康状態の報告をお願いしております。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200">
+                    <button class="w-full p-4 flex justify-between items-center font-bold text-slate-700 hover:bg-slate-50 transition-colors" onclick="toggleAccordion('acc2')">
+                        ⚖️ 車代（遠征費）の明朗な精算
+                        <span id="acc2-icon">＋</span>
+                    </button>
+                    <div id="acc2" class="hidden p-4 text-sm text-slate-600 bg-slate-50 border-t">
+                        「特定の誰かが負担にならない」仕組みを導入しています。<br>
+                        ・埼玉県平均ガソリン価格を基準に算出。<br>
+                        ・乗合利用人数で1円単位で割り勘。<br>
+                        ・車を出した方には実費＋αの補填を行う透明な管理を行っています。
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 bg-emerald-50 border-2 border-emerald-200 rounded-2xl">
+                <h3 class="font-bold text-emerald-800 mb-2">よくある質問</h3>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <p class="font-bold text-emerald-700 font-bold">Q. 下の子も一緒に連れていっていいですか？</p>
+                        <p class="text-slate-600">A. もちろん大歓迎です！保護者の皆様の見守りのもと、一緒に体験をお楽しみください。</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-emerald-700 font-bold">Q. 運動が苦手なのですが大丈夫でしょうか？</p>
+                        <p class="text-slate-600">A. 全く問題ありません！1年生から始めた子も、みんな遊びの延長から上手くなっています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sticky Contact Bar -->
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t p-4 shadow-2xl z-50 flex items-center justify-between gap-4">
+        <div class="hidden sm:block">
+            <p class="text-xs text-slate-500">お問い合わせ：会計・小岩</p>
+            <p class="font-bold text-blue-600">ラッキーラビット</p>
+        </div>
+        <button class="flex-grow bg-blue-600 text-white font-black py-3 rounded-full shadow-lg hover:bg-blue-700 transition-all flex justify-center items-center gap-2">
+            <span>📱</span> 体験のお申し込みはこちら
+        </button>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+
+            const btnKids = document.getElementById('tab-kids-btn');
+            const btnParents = document.getElementById('tab-parents-btn');
+
+            if (tabName === 'kids') {
+                btnKids.classList.replace('border-transparent', 'border-blue-600');
+                btnKids.classList.replace('text-slate-500', 'text-blue-600');
+                btnParents.classList.replace('border-blue-600', 'border-transparent');
+                btnParents.classList.replace('text-blue-600', 'text-slate-500');
+            } else {
+                btnParents.classList.replace('border-transparent', 'border-blue-600');
+                btnParents.classList.replace('text-slate-500', 'text-blue-600');
+                btnKids.classList.replace('border-blue-600', 'border-transparent');
+                btnKids.classList.replace('text-blue-600', 'text-slate-500');
+                initChart(); // Ensure chart renders when parents tab is shown
+            }
+        }
+
+        function togglePosition(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            el.classList.toggle('hidden');
+            icon.innerText = el.classList.contains('hidden') ? '＋' : 'ー';
+        }
+
+        let chartInstance = null;
+        function initChart() {
+            if (chartInstance) return;
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            chartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['じょうぶな身体', '強い心', 'バレー技術', 'チームワーク'],
+                    datasets: [{
+                        label: '育成バランス',
+                        data: [100, 100, 100, 100],
+                        backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                        borderColor: 'rgba(37, 99, 235, 1)',
+                        pointBackgroundColor: 'rgba(37, 99, 235, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(37, 99, 235, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        window.onload = function() {
+            // Check if kids is default
+            if (document.getElementById('kids').classList.contains('active')) {
+                // No chart yet
+            }
+        };
+    </script>
+</body>
+</html>
