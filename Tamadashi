@@ -1,0 +1,100 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bチーム指導者ガイド | ラッキーラビット</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Zen Maru Gothic', sans-serif; }
+        .arc-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: dash 3s linear infinite; }
+        @keyframes dash { to { stroke-dashoffset: 0; } }
+    </style>
+</head>
+<body class="bg-orange-50 text-slate-800 pb-20">
+
+    <!-- Header -->
+    <header class="bg-orange-500 text-white p-6 rounded-b-3xl shadow-lg text-center">
+        <div class="text-3xl mb-2">🏐</div>
+        <h1 class="text-2xl font-black">Bチーム指導者への道</h1>
+        <p class="text-xs opacity-90">レシーブ球出し・3つの極意</p>
+    </header>
+
+    <main class="max-w-md mx-auto p-4 space-y-6">
+
+        <!-- Section 1: 球出しの技術 -->
+        <section class="bg-white p-5 rounded-2xl shadow-sm border-2 border-orange-200">
+            <h2 class="font-black text-orange-600 mb-3 flex items-center">
+                <span class="mr-2">🎯</span> 1. 「取らせる」球出し
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-orange-50 p-3 rounded-xl">
+                    <p class="font-bold text-sm">① 高い放物線（山なり）を意識</p>
+                    <p class="text-xs mt-1">直線的なボールは恐怖心を与えます。高い山なりのボールを出すことで、子供が「ボールの下に入る時間」を作ってあげましょう。</p>
+                </div>
+                <div class="bg-orange-50 p-3 rounded-xl">
+                    <p class="font-bold text-sm">② 常に同じ場所に投げる（再現性）</p>
+                    <p class="text-xs mt-1">出し手のコントロールが乱れると、子供のフォームも乱れます。まずは「一歩も動かずに打てる場所」に正確に。慣れてきたら左右に振ります。</p>
+                </div>
+                <div class="relative h-24 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center mt-2">
+                   <!-- Simplified Visual of Arc -->
+                   <div class="text-[10px] absolute top-2 left-2 text-slate-400">理想の軌道</div>
+                   <svg width="200" height="60" viewBox="0 0 200 60" class="w-full">
+                       <path d="M 10 50 Q 100 0 190 50" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" class="arc-path" />
+                   </svg>
+                   <div class="absolute bottom-1 left-2 text-xs">指導者</div>
+                   <div class="absolute bottom-1 right-2 text-xs">子供</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 声掛けとタイミング -->
+        <section class="bg-white p-5 rounded-2xl shadow-sm border-2 border-blue-200">
+            <h2 class="font-black text-blue-600 mb-3 flex items-center">
+                <span class="mr-2">🗣️</span> 2. タイミングと声掛け
+            </h2>
+            <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                    <span class="bg-blue-100 text-blue-600 rounded-full h-5 w-5 flex items-center justify-center shrink-0 font-bold">1</span>
+                    <p><strong>「いくよ！」の合図</strong><br>子供が構えを作る前に投げないこと。目を合わせ、「いくよ！」と声をかけてから投げ始めます。</p>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="bg-blue-100 text-blue-600 rounded-full h-5 w-5 flex items-center justify-center shrink-0 font-bold">2</span>
+                    <p><strong>結果より「過程」を褒める</strong><br>高く上がらなくても「足が動いたね！」「面（うで）が綺麗だったよ！」と具体的に褒めます。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section 3: 安全管理（小岩さんへの申し合わせ） -->
+        <section class="bg-white p-5 rounded-2xl shadow-sm border-2 border-red-200">
+            <h2 class="font-black text-red-600 mb-3 flex items-center">
+                <span class="mr-2">⚠️</span> 3. 絶対に守るべき安全
+            </h2>
+            <div class="text-xs space-y-2 text-slate-600">
+                <p>・<strong>ボールの片付け：</strong> 足元にボールが転がっていると捻挫の原因になります。一球ずつ、または数球ごとに必ずクリアにする時間を持ちます。</p>
+                <p>・<strong>無理をさせない：</strong> Bチームの子は集中力が切れると怪我をしやすくなります。「疲れたな」と思ったら無理せず休憩を。</p>
+                <p>・<strong>目の保護：</strong> 顔に当たらないよう、常に手のひらでガードする癖を教えましょう。</p>
+            </div>
+        </section>
+
+        <!-- Coach's Mantra -->
+        <div class="p-6 bg-gradient-to-br from-orange-400 to-red-500 rounded-3xl text-white text-center shadow-xl">
+            <h3 class="font-black text-lg mb-2">Bチーム指導の合言葉</h3>
+            <p class="text-xl font-bold tracking-widest italic">「情熱・愛情・忍耐」</p>
+            <p class="text-xs mt-3 opacity-80">小岩コーチ、子供たちの笑顔のために<br>楽しみながら頑張りましょう！🐰</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-8 text-center text-slate-400 text-[10px]">
+        © 2026 Kuki Lucky Rabbit | B-Team Coaching Support
+    </footer>
+
+</body>
+</html>
+
+```
+
