@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラッキーラビット | デジタル・ポータル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Zen Maru Gothic', sans-serif; }
+        .rabbit-hop { animation: hop 2s infinite; }
+        @keyframes hop {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .bg-rabbit { background-color: #0066cc; }
+        .text-rabbit { color: #0066cc; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .card-bounce:hover { transform: scale(1.01); transition: 0.2s; }
+        .accordion-content { transition: max-height 0.3s ease-out; overflow: hidden; max-height: 0; }
+        .accordion-content.open { max-height: 5000px; }
+    </style>
+</head>
+<body class="bg-blue-50 text-slate-800">
+
+    <!-- Top Navigation / Hero -->
+    <header class="bg-rabbit text-white pb-12 pt-8 px-6 rounded-b-[3rem] shadow-xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 opacity-20 transform translate-x-10 -translate-y-10">
+            
+        </div>
+        <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 rabbit-hop shadow-lg">
+                <span class="text-4xl">🐰</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black mb-2 tracking-tighter">LUCKY RABBIT</h1>
+            <p class="text-blue-100 font-bold">久喜市ラッキーラビット・スポーツ少年団</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+                <span class="bg-white/20 px-3 py-1 rounded-full text-xs">#繋ぐバレー</span>
+                <span class="bg-white/20 px-3 py-1 rounded-full text-xs">#白珪尚可磨</span>
+                <span class="bg-white/20 px-3 py-1 rounded-full text-xs">#団員募集中</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Tab Menu -->
+    <nav class="max-w-4xl mx-auto -mt-8 px-4 grid grid-cols-4 gap-2">
+        <button onclick="showSection('kids')" id="btn-kids" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-amber-400 flex flex-col items-center">
+            <span class="text-2xl">👧</span>
+            <span class="text-[10px] font-bold mt-1">キッズ</span>
+        </button>
+        <button onclick="showSection('parents')" id="btn-parents" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent flex flex-col items-center opacity-60">
+            <span class="text-2xl">👩‍🏫</span>
+            <span class="text-[10px] font-bold mt-1">保護者</span>
+        </button>
+        <button onclick="showSection('ops')" id="btn-ops" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent flex flex-col items-center opacity-60">
+            <span class="text-2xl">📋</span>
+            <span class="text-[10px] font-bold mt-1">運営</span>
+        </button>
+        <button onclick="showSection('rule')" id="btn-rule" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent flex flex-col items-center opacity-60">
+            <span class="text-2xl">🏐</span>
+            <span class="text-[10px] font-bold mt-1">ルール</span>
+        </button>
+    </nav>
+
+    <main class="max-w-4xl mx-auto p-6">
+
+        <!-- SECTION: KIDS -->
+        <div id="section-kids" class="tab-content active space-y-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-black text-rabbit">ラビッ子の目標！</h2>
+                <p class="text-sm text-slate-500">みんなで守って、最高のチームになろう</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-green-400 card-bounce">
+                    <h3 class="font-bold flex items-center text-green-700 text-lg">
+                        <span class="text-2xl mr-2">🏃‍♀️</span> じょうぶな身体
+                    </h3>
+                    <ul class="text-sm mt-2 space-y-1 text-slate-600">
+                        <li>・規則正しい生活をしよう</li>
+                        <li>・毎日一人でできる運動を続けよう</li>
+                        <li>・調子が悪い時はすぐに言おう</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-red-400 card-bounce">
+                    <h3 class="font-bold flex items-center text-red-700 text-lg">
+                        <span class="text-2xl mr-2">❤️</span> 強い心
+                    </h3>
+                    <ul class="text-sm mt-2 space-y-1 text-slate-600">
+                        <li>・練習は5分前集合！休まない</li>
+                        <li>・苦しくても弱ねをはかない</li>
+                        <li>・疲れていても宿題をやりとげる！</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-blue-400 card-bounce">
+                    <h3 class="font-bold flex items-center text-blue-700 text-lg">
+                        <span class="text-2xl mr-2">🏐</span> 技術をみがく
+                    </h3>
+                    <ul class="text-sm mt-2 space-y-1 text-slate-600">
+                        <li>・よいプレーをたくさん見て学ぼう</li>
+                        <li>・基本のフォームを頭にえがこう</li>
+                        <li>・試合での動きを思いかえしてみよう</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-amber-400 card-bounce">
+                    <h3 class="font-bold flex items-center text-amber-700 text-lg">
+                        <span class="text-2xl mr-2">🤝</span> チームワーク
+                    </h3>
+                    <ul class="text-sm mt-2 space-y-1 text-slate-600">
+                        <li>・友だちの意見をよく聞こう</li>
+                        <li>・失敗はとがめず、自分のはあやまろう</li>
+                        <li>・「まかせとけ」心をこめてパスしよう</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-purple-400 card-bounce">
+                <h3 class="font-bold flex items-center text-purple-700 text-lg">
+                    <span class="text-2xl mr-2">✨</span> りっぱなマナー
+                </h3>
+                <ul class="text-sm mt-2 space-y-1 text-slate-600">
+                    <li>・だれにでも元気にあいさつ！</li>
+                    <li>・くつやカバンをきれいにそろえる</li>
+                    <li>・自分の持ちものに責任を持つ</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION: PARENTS -->
+        <div id="section-parents" class="tab-content space-y-6">
+            <div class="text-center">
+                <h2 class="text-2xl font-black text-rabbit">指導方針と団のきまり</h2>
+                <p class="text-sm text-slate-500">保護者の皆様に共有いただきたい大切な指針です</p>
+            </div>
+
+            <!-- 指導者の基本姿勢 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
+                <button onclick="toggleAcc('acc-jishin')" class="w-full p-5 flex justify-between items-center font-black bg-blue-50 text-blue-800">
+                    <span>🌟 指導者の基本姿勢</span>
+                    <span id="acc-jishin-icon">＋</span>
+                </button>
+                <div id="acc-jishin" class="accordion-content">
+                    <div class="p-6 text-sm text-slate-700 space-y-4">
+                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                            <p class="font-bold mb-2">1. 情熱・愛情・忍耐</p>
+                            <p>団員が常に目標を持って活動できるよう、情熱と愛情、そして忍耐力を持って指導にあたります。</p>
+                        </div>
+                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                            <p class="font-bold mb-2">2. 発達段階に合わせた指導</p>
+                            <p>学年ごとの特性を理解し、異学年交流を通じた相互啓発をはかります。</p>
+                        </div>
+                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                            <p class="font-bold mb-2">3. 生涯スポーツの視点</p>
+                            <p>目先の勝利だけでなく、将来を見据えた人格形成と健康管理を重視します。</p>
+                        </div>
+                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                            <p class="font-bold mb-2">4. 専門知識の習得</p>
+                            <p>スポーツ少年団認定員としての資格を持ち、児童心理や生理学など多角的な視点で指導します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 指導目標 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
+                <button onclick="toggleAcc('acc-goals')" class="w-full p-5 flex justify-between items-center font-black bg-emerald-50 text-emerald-800">
+                    <span>🎯 各学年の指導目標</span>
+                    <span id="acc-goals-icon">＋</span>
+                </button>
+                <div id="acc-goals" class="accordion-content">
+                    <div class="p-6 text-sm text-slate-700 space-y-6">
+                        <div class="relative pl-6 border-l-2 border-emerald-300">
+                            <h4 class="font-bold text-emerald-700">【低学年（1〜3年生）】</h4>
+                            <p class="mt-1">ボール遊びやゲームを通して、バレーボールの楽しさを知る。基本動作（パス・サーブの形）を身につける。</p>
+                        </div>
+                        <div class="relative pl-6 border-l-2 border-emerald-300">
+                            <h4 class="font-bold text-emerald-700">【中学年（4年生）】</h4>
+                            <p class="mt-1">基本技術の正確な習得。ルールを覚え、ゲームの進め方を理解する。</p>
+                        </div>
+                        <div class="relative pl-6 border-l-2 border-emerald-300">
+                            <h4 class="font-bold text-emerald-700">【高学年（5・6年生）】</h4>
+                            <p class="mt-1">応用技術の習得とフォーメーションの実践。リーダーシップと責任感を育てる。</p>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-xl text-xs">
+                            <p class="font-bold text-emerald-800">共通目標：</p>
+                            <p>・強い意志と忍耐力を養う<br>・感謝の心、礼儀、マナーの徹底</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 団則 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
+                <button onclick="toggleAcc('acc-dansoku')" class="w-full p-5 flex justify-between items-center font-black bg-slate-800 text-white">
+                    <span>📜 団則（規約全文）</span>
+                    <span id="acc-dansoku-icon">＋</span>
+                </button>
+                <div id="acc-dansoku" class="accordion-content">
+                    <div class="p-6 text-xs text-slate-700 space-y-6 overflow-y-auto max-h-[60vh]">
+                        <section>
+                            <h4 class="font-bold border-b pb-1 mb-2">第1〜3章：定義・目的・名称</h4>
+                            <p>本団はバレーボールを通じて、健康な身体作りと思いやりの心を持つ人間育成を目的とします。</p>
+                        </section>
+                        <section>
+                            <h4 class="font-bold border-b pb-1 mb-2">第5章：団員の資格と入退団</h4>
+                            <p>小学1年生から6年生を対象とし、保護者の同意があれば市外からも入団可能です。正式入団は4月ですが随時入団を認めます。</p>
+                        </section>
+                        <section>
+                            <h4 class="font-bold border-b pb-1 mb-2">第8章：事故・負傷</h4>
+                            <p>活動中の負傷はスポーツ安全保険の範囲内で対応します。指導者は安全管理を徹底しますが、保険外の事案は誠意を持って協議します。</p>
+                        </section>
+                        <section>
+                            <h4 class="font-bold border-b pb-1 mb-2">第9〜10章：育成会・役員会</h4>
+                            <p>会長・副会長・会計・保護者・賛助会員で構成されます。団長、監督、コーチは団長より委嘱されます。</p>
+                        </section>
+                        <section class="bg-slate-100 p-3 rounded">
+                            <p>※全文の確認が必要な場合は、会計・小岩まで原本をお問い合わせください。</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 申し合わせ事項 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
+                <button onclick="toggleAcc('acc-moshiawase')" class="w-full p-5 flex justify-between items-center font-black bg-rose-50 text-rose-800">
+                    <span>🛡️ 事故に関する申し合わせ</span>
+                    <span id="acc-moshiawase-icon">＋</span>
+                </button>
+                <div id="acc-moshiawase" class="accordion-content">
+                    <div class="p-6 text-sm text-slate-700 space-y-4">
+                        <p class="font-bold text-rose-700">責任の範囲：</p>
+                        <p>事故発生時の補償は加入しているスポーツ安全保険の範囲内となります。それ以上の金銭的負担は負いかねます。</p>
+                        <p class="font-bold text-rose-700">保護者の義務：</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>往復の交通安全（近距離でも寄り道禁止）</li>
+                            <li>健康状態の把握と報告</li>
+                            <li>欠席時の速やかな連絡</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: OPERATIONS -->
+        <div id="section-ops" class="tab-content space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Carpool Card -->
+                <div class="bg-white p-6 rounded-3xl shadow-md border-t-8 border-blue-500 card-bounce">
+                    <h3 class="text-lg font-black mb-4 flex items-center">
+                        <span class="mr-2">🚗</span> 配車・精算ルール
+                    </h3>
+                    <ul class="text-sm space-y-2 text-slate-600">
+                        <li>・TeamHubで親子別の出欠を登録</li>
+                        <li>・ガソリン代は「県平均単価」で算出</li>
+                        <li>・車出し可否をコメント欄に明記</li>
+                    </ul>
+                </div>
+
+                <!-- Accounting Card -->
+                <div class="bg-white p-6 rounded-3xl shadow-md border-t-8 border-emerald-500 card-bounce">
+                    <h3 class="text-lg font-black mb-4 flex items-center">
+                        <span class="mr-2">💰</span> 会計・デジタル化
+                    </h3>
+                    <ul class="text-sm space-y-2 text-slate-600">
+                        <li>・レシートはLINEアルバムへアップ</li>
+                        <li>・原本はアップ後に破棄OK！</li>
+                        <li>・PayPayでの集金・返済を推奨</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-amber-100 p-6 rounded-3xl border-2 border-amber-300">
+                <h3 class="font-bold text-amber-800 mb-2">🎈 近日のイベント</h3>
+                <p class="text-sm text-amber-700">4月12日(日)：体験会（ゲスト：志乃ちゃん）</p>
+                <p class="text-xs text-amber-600 mt-1">※新3・4年生を全力募集中！</p>
+            </div>
+        </div>
+
+        <!-- SECTION: VOLLEYBALL RULE -->
+        <div id="section-rule" class="tab-content space-y-8">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border">
+                <h3 class="text-xl font-black mb-6 text-center text-rabbit">バレーのルールを知ろう！</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold">1</div>
+                        <div>
+                            <h4 class="font-bold">ブロックはノーカウント！</h4>
+                            <p class="text-xs text-slate-600">ブロックで触った後、もう一回自分で触ってもOK！チームであと3回触れます。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold">2</div>
+                        <div>
+                            <h4 class="font-bold">ダブルコンタクト（ドリブル）</h4>
+                            <p class="text-xs text-slate-600">一人の人が続けて2回触るのは反則です。でも、サーブやスパイクをレシーブする「1回目」だけは、少しくらい体がダブルヒットしてもOK！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 p-4 bg-slate-50 rounded-2xl text-center">
+                    
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Information -->
+    <footer class="max-w-4xl mx-auto p-8 text-center text-slate-400 text-xs">
+        <p class="font-bold text-slate-500 mb-1">白珪尚可磨（はっけいなおみがくべし）</p>
+        <p>自分を磨き、仲間を思いやる。それがラビットの精神です。</p>
+        <div class="mt-4 opacity-50">
+            © 2026 Kuki Lucky Rabbit.
+        </div>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.add('opacity-60');
+                el.classList.replace('border-amber-400', 'border-transparent');
+            });
+
+            document.getElementById('section-' + id).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + id);
+            activeBtn.classList.remove('opacity-60');
+            activeBtn.classList.replace('border-transparent', 'border-amber-400');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleAcc(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            const isOpen = el.classList.contains('open');
+            
+            if (isOpen) {
+                el.classList.remove('open');
+                icon.innerText = '＋';
+            } else {
+                el.classList.add('open');
+                icon.innerText = 'ー';
+            }
+        }
+    </script>
+</body>
+</html>
