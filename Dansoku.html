@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -33,7 +34,7 @@
             <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 rabbit-hop shadow-lg">
                 <span class="text-4xl">🐰</span>
             </div>
-            <h1 class="text-3xl md:text-5xl font-black mb-2 tracking-tighter">LUCKY RABBIT</h1>
+            <h1 class="text-3xl md:text-5xl font-black mb-2 tracking-tighter text-white">LUCKY RABBIT</h1>
             <p class="text-blue-100 font-bold">久喜市ラッキーラビット・スポーツ少年団</p>
             <div class="mt-6 flex flex-wrap justify-center gap-2">
                 <span class="bg-white/20 px-3 py-1 rounded-full text-xs">#繋ぐバレー</span>
@@ -134,14 +135,13 @@
                 <p class="text-sm text-slate-500">保護者の皆様に共有いただきたい大切な指針です</p>
             </div>
 
-            <!-- 指導者の基本姿勢 -->
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
                 <button onclick="toggleAcc('acc-jishin')" class="w-full p-5 flex justify-between items-center font-black bg-blue-50 text-blue-800">
                     <span>🌟 指導者の基本姿勢</span>
                     <span id="acc-jishin-icon">＋</span>
                 </button>
                 <div id="acc-jishin" class="accordion-content">
-                    <div class="p-6 text-sm text-slate-700 space-y-4">
+                    <div class="p-6 text-sm text-slate-700 space-y-4 text-left">
                         <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
                             <p class="font-bold mb-2">1. 情熱・愛情・忍耐</p>
                             <p>団員が常に目標を持って活動できるよう、情熱と愛情、そして忍耐力を持って指導にあたります。</p>
@@ -154,25 +154,20 @@
                             <p class="font-bold mb-2">3. 生涯スポーツの視点</p>
                             <p>目先の勝利だけでなく、将来を見据えた人格形成と健康管理を重視します。</p>
                         </div>
-                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
-                            <p class="font-bold mb-2">4. 専門知識の習得</p>
-                            <p>スポーツ少年団認定員としての資格を持ち、児童心理や生理学など多角的な視点で指導します。</p>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 指導目標 -->
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
                 <button onclick="toggleAcc('acc-goals')" class="w-full p-5 flex justify-between items-center font-black bg-emerald-50 text-emerald-800">
                     <span>🎯 各学年の指導目標</span>
                     <span id="acc-goals-icon">＋</span>
                 </button>
                 <div id="acc-goals" class="accordion-content">
-                    <div class="p-6 text-sm text-slate-700 space-y-6">
+                    <div class="p-6 text-sm text-slate-700 space-y-6 text-left">
                         <div class="relative pl-6 border-l-2 border-emerald-300">
                             <h4 class="font-bold text-emerald-700">【低学年（1〜3年生）】</h4>
-                            <p class="mt-1">ボール遊びやゲームを通して、バレーボールの楽しさを知る。基本動作（パス・サーブの形）を身につける。</p>
+                            <p class="mt-1">ボール遊びやゲームを通して、バレーボールの楽しさを知る。基本動作を身につける。</p>
                         </div>
                         <div class="relative pl-6 border-l-2 border-emerald-300">
                             <h4 class="font-bold text-emerald-700">【中学年（4年生）】</h4>
@@ -180,63 +175,23 @@
                         </div>
                         <div class="relative pl-6 border-l-2 border-emerald-300">
                             <h4 class="font-bold text-emerald-700">【高学年（5・6年生）】</h4>
-                            <p class="mt-1">応用技術の習得とフォーメーションの実践。リーダーシップと責任感を育てる。</p>
-                        </div>
-                        <div class="bg-emerald-50 p-4 rounded-xl text-xs">
-                            <p class="font-bold text-emerald-800">共通目標：</p>
-                            <p>・強い意志と忍耐力を養う<br>・感謝の心、礼儀、マナーの徹底</p>
+                            <p class="mt-1">応用技術の習得。リーダーシップと責任感を育てる。</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 団則 -->
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
                 <button onclick="toggleAcc('acc-dansoku')" class="w-full p-5 flex justify-between items-center font-black bg-slate-800 text-white">
                     <span>📜 団則（規約全文）</span>
                     <span id="acc-dansoku-icon">＋</span>
                 </button>
                 <div id="acc-dansoku" class="accordion-content">
-                    <div class="p-6 text-xs text-slate-700 space-y-6 overflow-y-auto max-h-[60vh]">
-                        <section>
-                            <h4 class="font-bold border-b pb-1 mb-2">第1〜3章：定義・目的・名称</h4>
-                            <p>本団はバレーボールを通じて、健康な身体作りと思いやりの心を持つ人間育成を目的とします。</p>
-                        </section>
-                        <section>
-                            <h4 class="font-bold border-b pb-1 mb-2">第5章：団員の資格と入退団</h4>
-                            <p>小学1年生から6年生を対象とし、保護者の同意があれば市外からも入団可能です。正式入団は4月ですが随時入団を認めます。</p>
-                        </section>
-                        <section>
-                            <h4 class="font-bold border-b pb-1 mb-2">第8章：事故・負傷</h4>
-                            <p>活動中の負傷はスポーツ安全保険の範囲内で対応します。指導者は安全管理を徹底しますが、保険外の事案は誠意を持って協議します。</p>
-                        </section>
-                        <section>
-                            <h4 class="font-bold border-b pb-1 mb-2">第9〜10章：育成会・役員会</h4>
-                            <p>会長・副会長・会計・保護者・賛助会員で構成されます。団長、監督、コーチは団長より委嘱されます。</p>
-                        </section>
-                        <section class="bg-slate-100 p-3 rounded">
-                            <p>※全文の確認が必要な場合は、会計・小岩まで原本をお問い合わせください。</p>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 申し合わせ事項 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200">
-                <button onclick="toggleAcc('acc-moshiawase')" class="w-full p-5 flex justify-between items-center font-black bg-rose-50 text-rose-800">
-                    <span>🛡️ 事故に関する申し合わせ</span>
-                    <span id="acc-moshiawase-icon">＋</span>
-                </button>
-                <div id="acc-moshiawase" class="accordion-content">
-                    <div class="p-6 text-sm text-slate-700 space-y-4">
-                        <p class="font-bold text-rose-700">責任の範囲：</p>
-                        <p>事故発生時の補償は加入しているスポーツ安全保険の範囲内となります。それ以上の金銭的負担は負いかねます。</p>
-                        <p class="font-bold text-rose-700">保護者の義務：</p>
-                        <ul class="list-disc pl-5 space-y-1">
-                            <li>往復の交通安全（近距離でも寄り道禁止）</li>
-                            <li>健康状態の把握と報告</li>
-                            <li>欠席時の速やかな連絡</li>
-                        </ul>
+                    <div class="p-6 text-xs text-slate-700 space-y-4 text-left">
+                        <p>・名称：久喜市ラッキーラビットスポーツ少年団</p>
+                        <p>・目的：バレーを通じて心豊かな人間になること</p>
+                        <p>・事故：スポーツ安全保険の範囲内で対応。指導者は安全管理を徹底します。</p>
+                        <p class="text-slate-400 italic">※詳細は原本を確認してください。</p>
                     </div>
                 </div>
             </div>
@@ -245,73 +200,87 @@
         <!-- SECTION: OPERATIONS -->
         <div id="section-ops" class="tab-content space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Carpool Card -->
                 <div class="bg-white p-6 rounded-3xl shadow-md border-t-8 border-blue-500 card-bounce">
                     <h3 class="text-lg font-black mb-4 flex items-center">
                         <span class="mr-2">🚗</span> 配車・精算ルール
                     </h3>
-                    <ul class="text-sm space-y-2 text-slate-600">
+                    <ul class="text-sm space-y-2 text-slate-600 text-left">
                         <li>・TeamHubで親子別の出欠を登録</li>
                         <li>・ガソリン代は「県平均単価」で算出</li>
-                        <li>・車出し可否をコメント欄に明記</li>
+                        <li>・車を出さない家庭も全員で公平に分担</li>
                     </ul>
                 </div>
-
-                <!-- Accounting Card -->
                 <div class="bg-white p-6 rounded-3xl shadow-md border-t-8 border-emerald-500 card-bounce">
                     <h3 class="text-lg font-black mb-4 flex items-center">
                         <span class="mr-2">💰</span> 会計・デジタル化
                     </h3>
-                    <ul class="text-sm space-y-2 text-slate-600">
+                    <ul class="text-sm space-y-2 text-slate-600 text-left">
                         <li>・レシートはLINEアルバムへアップ</li>
-                        <li>・原本はアップ後に破棄OK！</li>
+                        <li>・原本はアップ後に破棄してOK</li>
                         <li>・PayPayでの集金・返済を推奨</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="bg-amber-100 p-6 rounded-3xl border-2 border-amber-300">
-                <h3 class="font-bold text-amber-800 mb-2">🎈 近日のイベント</h3>
-                <p class="text-sm text-amber-700">4月12日(日)：体験会（ゲスト：志乃ちゃん）</p>
-                <p class="text-xs text-amber-600 mt-1">※新3・4年生を全力募集中！</p>
-            </div>
         </div>
 
-        <!-- SECTION: VOLLEYBALL RULE -->
+        <!-- SECTION: VOLLEYBALL RULE & FACILITY -->
         <div id="section-rule" class="tab-content space-y-8">
-            <div class="bg-white p-6 rounded-3xl shadow-sm border">
-                <h3 class="text-xl font-black mb-6 text-center text-rabbit">バレーのルールを知ろう！</h3>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold">1</div>
-                        <div>
-                            <h4 class="font-bold">ブロックはノーカウント！</h4>
-                            <p class="text-xs text-slate-600">ブロックで触った後、もう一回自分で触ってもOK！チームであと3回触れます。</p>
-                        </div>
+            <div class="text-center">
+                <h2 class="text-2xl font-black text-rabbit">ルールとマナー</h2>
+                <p class="text-sm text-slate-500">気持ちよく活動するための大切なお約束</p>
+            </div>
+
+            <!-- 体育館使用の諸注意 (NEW) -->
+            <div class="bg-amber-50 p-6 rounded-[2rem] border-2 border-amber-200 shadow-sm">
+                <h3 class="text-lg font-black mb-4 text-amber-800 flex items-center">
+                    <span class="text-2xl mr-2">🏫</span> 体育館利用ルール
+                </h3>
+                <div class="space-y-6 text-left">
+                    <div class="bg-white/60 p-4 rounded-2xl">
+                        <p class="font-bold text-amber-900 text-sm mb-1">👟 シューズ</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">体育館専用シューズを使い、外履き入場は厳禁！入る前に底の汚れを落としましょう。</p>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold">2</div>
-                        <div>
-                            <h4 class="font-bold">ダブルコンタクト（ドリブル）</h4>
-                            <p class="text-xs text-slate-600">一人の人が続けて2回触るのは反則です。でも、サーブやスパイクをレシーブする「1回目」だけは、少しくらい体がダブルヒットしてもOK！</p>
-                        </div>
+                    <div class="bg-white/60 p-4 rounded-2xl">
+                        <p class="font-bold text-amber-900 text-sm mb-1">🍱 飲食・ゴミ</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">アリーナ内は飲食禁止！水分補給はベンチで行い、ゴミは必ず持ち帰ること。</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-2xl">
+                        <p class="font-bold text-amber-900 text-sm mb-1">🧹 片付け・清掃</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">備品を大切にし、使用後は元に戻す。全員でモップ掛け、戸締まり、消灯を忘れずに！</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-2xl">
+                        <p class="font-bold text-amber-900 text-sm mb-1">🚾 トイレ</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">きれいに使い、スリッパは必ずきれいに揃える！</p>
+                    </div>
+                    <div class="text-[10px] text-amber-600 mt-2 text-center font-bold">
+                        ※敷地内は全面禁煙です。忘れ物がないか最後にチェック！
                     </div>
                 </div>
-                <div class="mt-8 p-4 bg-slate-50 rounded-2xl text-center">
-                    
+            </div>
+
+            <!-- バレーボールのルール -->
+            <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200">
+                <h3 class="text-lg font-black mb-4 text-rabbit flex items-center">
+                    <span class="text-2xl mr-2">🏐</span> バレーの基本ルール
+                </h3>
+                <div class="space-y-4 text-left">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold text-blue-600 text-sm">1</div>
+                        <p class="text-xs text-slate-600">ブロックは回数に数えない！触った後にもう一度触ってもOK（あと3回触れる）。</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold text-blue-600 text-sm">2</div>
+                        <p class="text-xs text-slate-600">1打目はドリブルになりにくい！サーブやスパイクをレシーブする時は、少し手がダブルヒットしても大丈夫。</p>
+                    </div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Footer Information -->
     <footer class="max-w-4xl mx-auto p-8 text-center text-slate-400 text-xs">
         <p class="font-bold text-slate-500 mb-1">白珪尚可磨（はっけいなおみがくべし）</p>
-        <p>自分を磨き、仲間を思いやる。それがラビットの精神です。</p>
-        <div class="mt-4 opacity-50">
-            © 2026 Kuki Lucky Rabbit.
-        </div>
+        <p>© 2026 Kuki Lucky Rabbit.</p>
     </footer>
 
     <script>
@@ -321,27 +290,20 @@
                 el.classList.add('opacity-60');
                 el.classList.replace('border-amber-400', 'border-transparent');
             });
-
             document.getElementById('section-' + id).classList.add('active');
             const activeBtn = document.getElementById('btn-' + id);
             activeBtn.classList.remove('opacity-60');
             activeBtn.classList.replace('border-transparent', 'border-amber-400');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
         function toggleAcc(id) {
             const el = document.getElementById(id);
             const icon = document.getElementById(id + '-icon');
-            const isOpen = el.classList.contains('open');
-            
-            if (isOpen) {
-                el.classList.remove('open');
-                icon.innerText = '＋';
-            } else {
-                el.classList.add('open');
-                icon.innerText = 'ー';
-            }
+            el.classList.toggle('open');
+            icon.innerText = el.classList.contains('open') ? 'ー' : '＋';
         }
     </script>
 </body>
 </html>
+
+```
