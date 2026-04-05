@@ -3,290 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ラッキーラビット | デジタル・ポータル</title>
+    <title>ラッキーラビット | ポータル</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <!-- 外部のデータファイルを読み込む -->
+    <script src="data.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Zen Maru Gothic', sans-serif; }
         .rabbit-hop { animation: hop 2s infinite; }
-        @keyframes hop {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+        @keyframes hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .bg-rabbit { background-color: #0066cc; }
-        .text-rabbit { color: #0066cc; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .card-bounce:hover { transform: scale(1.02); transition: 0.3s; }
+        .accordion-content { transition: max-height 0.3s ease-out; overflow: hidden; max-height: 0; }
+        .accordion-content.open { max-height: 2000px; }
     </style>
 </head>
-<body class="bg-blue-50 text-slate-800">
+<body class="bg-blue-50 text-slate-800 pb-20">
 
-    <!-- Top Navigation / Hero -->
-    <header class="bg-rabbit text-white pb-12 pt-8 px-6 rounded-b-[3rem] shadow-xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 opacity-20 transform translate-x-10 -translate-y-10">
-            
+    <header class="bg-rabbit text-white pb-12 pt-8 px-6 rounded-b-[3rem] shadow-xl text-center relative overflow-hidden">
+        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 rabbit-hop">
+            <span class="text-3xl">🐰</span>
         </div>
-        <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
-            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 rabbit-hop shadow-lg">
-                <span class="text-4xl">🐰</span>
-            </div>
-            <h1 class="text-3xl md:text-5xl font-black mb-2 tracking-tighter">LUCKY RABBIT</h1>
-            <p class="text-blue-100 font-bold">久喜市ラッキーラビット・スポーツ少年団</p>
-            <div class="mt-6 flex flex-wrap justify-center gap-2">
-                <span class="bg-white/20 px-3 py-1 rounded-full text-xs">#繋ぐバレー</span>
-                <span class="bg-white/20 px-3 py-1 rounded-full text-xs">#白珪尚可磨</span>
-                <span class="bg-white/20 px-3 py-1 rounded-full text-xs">#団員募集中</span>
-            </div>
-        </div>
+        <h1 class="text-3xl font-black mb-1">LUCKY RABBIT</h1>
+        <p class="text-xs opacity-80">久喜市ラッキーラビット・デジタルポータル</p>
     </header>
 
-    <!-- Main Tab Menu -->
-    <nav class="max-w-4xl mx-auto -mt-8 px-4 grid grid-cols-4 gap-2">
-        <button onclick="showSection('kids')" id="btn-kids" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-amber-400 flex flex-col items-center">
-            <span class="text-2xl">👧</span>
-            <span class="text-[10px] font-bold mt-1">キッズ</span>
+    <!-- Navigation -->
+    <nav class="max-w-md mx-auto -mt-6 px-4 grid grid-cols-4 gap-2 z-10 relative">
+        <button onclick="showTab('kids')" id="btn-kids" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-amber-400 flex flex-col items-center">
+            <span class="text-xl">👧</span><span class="text-[10px] font-bold">キッズ</span>
         </button>
-        <button onclick="showSection('parents')" id="btn-parents" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent flex flex-col items-center opacity-60">
-            <span class="text-2xl">👩‍🏫</span>
-            <span class="text-[10px] font-bold mt-1">保護者</span>
+        <button onclick="showTab('parents')" id="btn-parents" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-xl">👩‍🏫</span><span class="text-[10px] font-bold">保護者</span>
         </button>
-        <button onclick="showSection('ops')" id="btn-ops" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent flex flex-col items-center opacity-60">
-            <span class="text-2xl">📋</span>
-            <span class="text-[10px] font-bold mt-1">運営</span>
+        <button onclick="showTab('ops')" id="btn-ops" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-xl">📋</span><span class="text-[10px] font-bold">運営</span>
         </button>
-        <button onclick="showSection('rule')" id="btn-rule" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent flex flex-col items-center opacity-60">
-            <span class="text-2xl">🏐</span>
-            <span class="text-[10px] font-bold mt-1">ルール</span>
+        <button onclick="showTab('rules')" id="btn-rules" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-xl">🏐</span><span class="text-[10px] font-bold">ルール</span>
         </button>
     </nav>
 
-    <main class="max-w-4xl mx-auto p-6">
-
-        <!-- SECTION: KIDS -->
-        <div id="section-kids" class="tab-content active space-y-8">
-            <div class="text-center">
-                <h2 class="text-2xl font-black text-rabbit">ラビッ子の目標！</h2>
-                <p class="text-sm text-slate-500">みんなで守って、最高のチームになろう</p>
-            </div>
-
-            <!-- Animated Goals Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-green-400 card-bounce">
-                    <h3 class="font-bold flex items-center text-green-700">
-                        <span class="text-2xl mr-2">🏃‍♀️</span> じょうぶな身体
-                    </h3>
-                    <p class="text-sm mt-2">規則正しい生活をして、毎日一人でできる運動（なわとび・マラソン等）をしよう！</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-red-400 card-bounce">
-                    <h3 class="font-bold flex items-center text-red-700">
-                        <span class="text-2xl mr-2">❤️</span> 強い心
-                    </h3>
-                    <p class="text-sm mt-2">苦しい時でも弱ねをはかない！宿題もやりとげる気力を持とう！</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-blue-400 card-bounce">
-                    <h3 class="font-bold flex items-center text-blue-700">
-                        <span class="text-2xl mr-2">🏐</span> 技術をみがく
-                    </h3>
-                    <p class="text-sm mt-2">よいプレーを真似して、基本のフォームをいつも頭に描こう！</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border-l-8 border-amber-400 card-bounce">
-                    <h3 class="font-bold flex items-center text-amber-700">
-                        <span class="text-2xl mr-2">🤝</span> チームワーク
-                    </h3>
-                    <p class="text-sm mt-2">「おねがい、ありがとう、まかせとけ」心をこめてパスを繋ごう！</p>
-                </div>
-            </div>
-
-            <!-- Nontan's Strategy Room -->
-            <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 rounded-3xl text-white shadow-xl relative overflow-hidden">
-                <div class="absolute right-0 bottom-0 opacity-10 text-9xl">💡</div>
-                <h3 class="text-xl font-black mb-4 flex items-center">
-                    <span class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-2 text-sm">💡</span>
-                    のんたんの「作戦会議室」
-                </h3>
-                <div class="space-y-4 text-sm bg-white/10 p-4 rounded-xl">
-                    <p>・<strong>ハンドサインの導入：</strong> サーブ前に指差しでトス先を合図しよう！</p>
-                    <p>・<strong>防御フォーメーション：</strong> エミカとスズカの位置を入れ替えてみたらどうかな？</p>
-                    <p>・<strong>声掛け：</strong> 攻め合うんじゃなくて「次はこうしよう」と笑顔で話そう！</p>
-                </div>
-            </div>
-            
-            <div class="text-center py-6">
-                
-            </div>
-        </div>
-
-        <!-- SECTION: PARENTS -->
-        <div id="section-parents" class="tab-content space-y-8">
-            <div class="text-center">
-                <h2 class="text-2xl font-black text-rabbit">指導・安全・団則</h2>
-                <p class="text-sm text-slate-500">大切なお子様をお預かりする上での指針</p>
-            </div>
-
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border">
-                <button onclick="toggleAcc('acc-jishin')" class="w-full p-5 flex justify-between items-center font-bold bg-slate-50 border-b">
-                    🌟 指導者の基本姿勢
-                    <span id="acc-jishin-icon">＋</span>
-                </button>
-                <div id="acc-jishin" class="hidden p-6 text-sm space-y-4">
-                    <p>・情熱と愛情と忍耐力を柱に指導します。</p>
-                    <p>・低学年は「楽しさ」、高学年は「技術と責任感」を段階的に指導します。</p>
-                    <p>・生涯スポーツの立場から、将来を見据えた指導を心がけます。</p>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border">
-                <button onclick="toggleAcc('acc-anzen')" class="w-full p-5 flex justify-between items-center font-bold bg-slate-50 border-b">
-                    🛡️ 事故・安全への申し合わせ
-                    <span id="acc-anzen-icon">＋</span>
-                </button>
-                <div id="acc-anzen" class="hidden p-6 text-sm space-y-4">
-                    <p>・スポーツ安全保険の範囲内で適正に対応します。</p>
-                    <p>・移動や練習時の安全確認を徹底します。</p>
-                    <p>・保護者様には健康状態の報告と、往復の安全管理をお願いしております。</p>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border">
-                <button onclick="toggleAcc('acc-dansoku')" class="w-full p-5 flex justify-between items-center font-bold bg-slate-50 border-b">
-                    📜 団則（抜粋）
-                    <span id="acc-dansoku-icon">＋</span>
-                </button>
-                <div id="acc-dansoku" class="hidden p-6 text-sm space-y-4">
-                    <p>・名称：久喜市ラッキーラビットスポーツ少年団</p>
-                    <p>・目的：バレーを通じて心豊かな人間になること</p>
-                    <p>・組織：団員会、指導者会、育成会の三組織</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION: OPERATIONS -->
-        <div id="section-ops" class="tab-content space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Carpool Card -->
-                <div class="bg-white p-6 rounded-3xl shadow-md border-t-8 border-blue-500">
-                    <h3 class="text-lg font-black mb-4 flex items-center">
-                        <span class="mr-2">🚗</span> 配車・精算ルール
-                    </h3>
-                    <ul class="text-sm space-y-2">
-                        <li>・TeamHubで親子別の出欠を入れてください。</li>
-                        <li>・ガソリン代は「県平均単価」で公平に算出。</li>
-                        <li>・車を出さない家庭も全員で1円単位で分担。</li>
-                    </ul>
-                    <div class="mt-4 bg-blue-50 p-3 rounded-xl text-[10px] text-blue-700">
-                        ※小岩さんがSEスキルで作成した透明な精算システムを導入しています！
-                    </div>
-                </div>
-
-                <!-- Accounting Card -->
-                <div class="bg-white p-6 rounded-3xl shadow-md border-t-8 border-emerald-500">
-                    <h3 class="text-lg font-black mb-4 flex items-center">
-                        <span class="mr-2">💰</span> 会計・デジタル化
-                    </h3>
-                    <ul class="text-sm space-y-2">
-                        <li>・レシートはLINEアルバムへの投稿でOK（原本破棄可）。</li>
-                        <li>・集金・返済にはPayPayを活用しています。</li>
-                        <li>・領収書は必ず「ラビット」宛で！</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Event Banner -->
-            <div class="bg-amber-100 p-6 rounded-3xl border-2 border-amber-300">
-                <h3 class="font-bold text-amber-800 mb-2">🎈 近日のイベント</h3>
-                <p class="text-sm text-amber-700">4月12日(日)：体験会（ゲスト：志乃ちゃん）</p>
-                <p class="text-xs text-amber-600 mt-1">※途中退室OK！お友達を誘って遊びにきてね。</p>
-            </div>
-        </div>
-
-        <!-- SECTION: VOLLEYBALL RULE -->
-        <div id="section-rule" class="tab-content space-y-8">
-            <div class="bg-white p-6 rounded-3xl shadow-sm border">
-                <h3 class="text-xl font-black mb-6 text-center text-rabbit">これだけは！バレーのルール</h3>
-                
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold">1</div>
-                        <div>
-                            <h4 class="font-bold">ブロックはカウントしない！</h4>
-                            <p class="text-xs text-slate-600">ブロックで触った後に、同じ人がレシーブしても「2回連続」にはなりません。あと3回触れます！</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold">2</div>
-                        <div>
-                            <h4 class="font-bold">時計回りのローテーション</h4>
-                            <p class="text-xs text-slate-600">サーブ権を取り返したら、みんなでぐるっと一つずつ移動します。</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex shrink-0 items-center justify-center font-bold">3</div>
-                        <div>
-                            <h4 class="font-bold">「つなぐ」スポーツ</h4>
-                            <p class="text-xs text-slate-600">失敗しても「どんまい！」。みんなでボールを地面に落とさないように繋ごう。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-8 p-4 bg-slate-50 rounded-2xl">
-                    
-                    <p class="text-[10px] text-center mt-2 text-slate-400">※詳細は「かんたんバレーボールルール.md」をチェック！</p>
-                </div>
-            </div>
-        </div>
-
+    <main class="max-w-md mx-auto p-4 mt-4">
+        <!-- 各セクションの入れ物。中身はJSで動的に入れる -->
+        <div id="content-area"></div>
     </main>
 
-    <!-- Footer Information -->
-    <footer class="max-w-4xl mx-auto p-8 text-center text-slate-400 text-xs">
-        <p class="font-bold text-slate-500 mb-1">白珪尚可磨（はっけいなおみがくべし）</p>
-        <p>自分を磨き、仲間を思いやる。それがラビットの精神です。</p>
-        <div class="mt-4 opacity-50">
-            © 2026 Kuki Lucky Rabbit. Created by M.Koiwa
-        </div>
-    </footer>
-
-    <!-- Bottom Action Button (Sticky) -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button class="w-16 h-16 bg-rabbit text-white rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-transform">
-            💬
-        </button>
-    </div>
-
     <script>
-        function showSection(id) {
-            // Hide all
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => {
-                el.classList.add('opacity-60');
-                el.classList.replace('border-amber-400', 'border-transparent');
+        // タブ切り替えと描画ロジック
+        function showTab(tabId) {
+            // タブの見た目更新
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.add('opacity-60');
+                btn.classList.replace('border-amber-400', 'border-transparent');
             });
-
-            // Show target
-            document.getElementById('section-' + id).classList.add('active');
-            const activeBtn = document.getElementById('btn-' + id);
+            const activeBtn = document.getElementById('btn-' + tabId);
             activeBtn.classList.remove('opacity-60');
             activeBtn.classList.replace('border-transparent', 'border-amber-400');
 
-            // Scroll to top of main content
+            const container = document.getElementById('content-area');
+            let html = '';
+
+            if (tabId === 'kids') {
+                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">ラビッ子の目標！</h2>`;
+                rabbitData.kidsGoals.forEach(g => {
+                    html += `
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border-l-8 border-${g.color}-400 mb-4">
+                            <h3 class="font-bold flex items-center text-lg mb-2"><span class="mr-2">${g.icon}</span> ${g.title}</h3>
+                            <ul class="text-sm text-slate-600 space-y-1">${g.items.map(i => `<li>・${i}</li>`).join('')}</ul>
+                        </div>`;
+                });
+            } else if (tabId === 'parents') {
+                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">指導方針と規約</h2>`;
+                rabbitData.policies.forEach(p => {
+                    html += `
+                        <div class="bg-white rounded-2xl shadow-sm border mb-4 overflow-hidden">
+                            <button onclick="this.nextElementSibling.classList.toggle('open')" class="w-full p-4 text-left font-bold bg-slate-50 flex justify-between">
+                                <span>${p.icon} ${p.title}</span><span>＋</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 text-sm text-slate-600 space-y-2">${p.content.map(c => `<p>・${c}</p>`).join('')}</div>
+                            </div>
+                        </div>`;
+                });
+            } else if (tabId === 'ops') {
+                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">運営・アプリガイド</h2>
+                        <div class="bg-indigo-600 p-6 rounded-3xl text-white mb-4 shadow-lg">
+                            <h3 class="font-bold mb-3 flex items-center"><span class="mr-2">📱</span> TeamHubの使い方</h3>
+                            <ul class="text-xs space-y-2">${rabbitData.operations.teamhub.map(t => `<li>・${t}</li>`).join('')}</ul>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-2xl shadow-sm border-t-4 border-blue-500">
+                                <h4 class="font-bold text-xs mb-2">🚗 配車・精算</h4>
+                                <ul class="text-[10px] space-y-1">${rabbitData.operations.carpool.map(c => `<li>・${c}</li>`).join('')}</ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl shadow-sm border-t-4 border-emerald-500">
+                                <h4 class="font-bold text-xs mb-2">💰 会計</h4>
+                                <ul class="text-[10px] space-y-1">${rabbitData.operations.accounting.map(a => `<li>・${a}</li>`).join('')}</ul>
+                            </div>
+                        </div>`;
+            } else if (tabId === 'rules') {
+                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">バレーのルール</h2>`;
+                rabbitData.volleyballRules.forEach(r => {
+                    html += `
+                        <div class="bg-white p-5 rounded-3xl shadow-sm mb-4">
+                            <p class="font-bold text-blue-700 text-sm mb-1">Q. ${r.q}</p>
+                            <p class="text-sm text-slate-600">A. ${r.a}</p>
+                        </div>`;
+                });
+            }
+
+            container.innerHTML = html;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function toggleAcc(id) {
-            const el = document.getElementById(id);
-            const icon = document.getElementById(id + '-icon');
-            const isHidden = el.classList.contains('hidden');
-            
-            if (isHidden) {
-                el.classList.remove('hidden');
-                icon.innerText = 'ー';
-            } else {
-                el.classList.add('hidden');
-                icon.innerText = '＋';
-            }
-        }
+        // 初期表示
+        window.onload = () => showTab('kids');
     </script>
 </body>
 </html>
