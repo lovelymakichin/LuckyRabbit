@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ラッキーラビット | ポータル</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 外部のデータファイルを読み込む -->
     <script src="data.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -29,31 +28,31 @@
         <p class="text-xs opacity-80">久喜市ラッキーラビット・デジタルポータル</p>
     </header>
 
-    <!-- Navigation -->
-    <nav class="max-w-md mx-auto -mt-6 px-4 grid grid-cols-4 gap-2 z-10 relative">
-        <button onclick="showTab('kids')" id="btn-kids" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-amber-400 flex flex-col items-center">
-            <span class="text-xl">👧</span><span class="text-[10px] font-bold">キッズ</span>
+    <!-- Navigation (5つのタブに拡張) -->
+    <nav class="max-w-md mx-auto -mt-6 px-2 grid grid-cols-5 gap-1 z-10 relative">
+        <button onclick="showTab('kids')" id="btn-kids" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-amber-400 flex flex-col items-center">
+            <span class="text-lg">👧</span><span class="text-[8px] font-bold">キッズ</span>
         </button>
-        <button onclick="showTab('parents')" id="btn-parents" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
-            <span class="text-xl">👩‍🏫</span><span class="text-[10px] font-bold">保護者</span>
+        <button onclick="showTab('parents')" id="btn-parents" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-lg">👩‍🏫</span><span class="text-[8px] font-bold">保護者</span>
         </button>
-        <button onclick="showTab('ops')" id="btn-ops" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
-            <span class="text-xl">📋</span><span class="text-[10px] font-bold">運営</span>
+        <button onclick="showTab('ops')" id="btn-ops" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-lg">📋</span><span class="text-[8px] font-bold">運営</span>
         </button>
-        <button onclick="showTab('rules')" id="btn-rules" class="tab-btn bg-white p-3 rounded-2xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
-            <span class="text-xl">🏐</span><span class="text-[10px] font-bold">ルール</span>
+        <button onclick="showTab('rules')" id="btn-rules" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-lg">🏐</span><span class="text-[8px] font-bold">ルール</span>
+        </button>
+        <button onclick="showTab('gym')" id="btn-gym" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-lg">🏫</span><span class="text-[8px] font-bold">体育館</span>
         </button>
     </nav>
 
     <main class="max-w-md mx-auto p-4 mt-4">
-        <!-- 各セクションの入れ物。中身はJSで動的に入れる -->
         <div id="content-area"></div>
     </main>
 
     <script>
-        // タブ切り替えと描画ロジック
         function showTab(tabId) {
-            // タブの見た目更新
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.add('opacity-60');
                 btn.classList.replace('border-amber-400', 'border-transparent');
@@ -90,8 +89,8 @@
             } else if (tabId === 'ops') {
                 html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">運営・アプリガイド</h2>
                         <div class="bg-indigo-600 p-6 rounded-3xl text-white mb-4 shadow-lg">
-                            <h3 class="font-bold mb-3 flex items-center"><span class="mr-2">📱</span> TeamHubの使い方</h3>
-                            <ul class="text-xs space-y-2">${rabbitData.operations.teamhub.map(t => `<li>・${t}</li>`).join('')}</ul>
+                            <h3 class="font-bold mb-2 flex items-center"><span class="mr-2">📱</span> TeamHubの使い方</h3>
+                            <ul class="text-xs space-y-1">${rabbitData.operations.teamhub.map(t => `<li>・${t}</li>`).join('')}</ul>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-white p-4 rounded-2xl shadow-sm border-t-4 border-blue-500">
@@ -112,13 +111,29 @@
                             <p class="text-sm text-slate-600">A. ${r.a}</p>
                         </div>`;
                 });
+            } else if (tabId === 'gym') {
+                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">体育館の利用ルール</h2>
+                        <div class="bg-rose-50 border-2 border-rose-200 p-4 rounded-2xl mb-6 text-xs text-rose-800 italic">
+                            ⚠️ ${rabbitData.gymRules.notice}
+                        </div>
+                        <div class="space-y-4">`;
+                rabbitData.gymRules.items.forEach(item => {
+                    html += `
+                        <div class="bg-white p-4 rounded-2xl shadow-sm flex items-start gap-3">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-[10px] font-bold shrink-0">重要</span>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">${item.title}</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">${item.desc}</p>
+                            </div>
+                        </div>`;
+                });
+                html += `</div>`;
             }
 
             container.innerHTML = html;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 初期表示
         window.onload = () => showTab('kids');
     </script>
 </body>
