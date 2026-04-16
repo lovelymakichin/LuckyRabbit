@@ -6,83 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ラッキーラビット | ポータル</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 外部のデータファイルを読み込む -->
     <script src="data.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Zen Maru Gothic', sans-serif; }
-        
-        /* Cooper風ロゴフォントの設定 */
-        .logo-font { 
-            font-family: 'Alfa Slab One', serif;
-            letter-spacing: -0.02em;
-        }
-
+        .logo-font { font-family: 'Alfa Slab One', serif; letter-spacing: -0.02em; }
         .rabbit-hop { animation: hop 2s infinite; }
         @keyframes hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        
         .bg-rabbit { background-color: #0066cc; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        
         .accordion-content { transition: max-height 0.3s ease-out; overflow: hidden; max-height: 0; }
         .accordion-content.open { max-height: 2000px; }
-
-        /* タブのボタンのアニメーション */
-        .tab-btn { transition: all 0.2s ease; }
+        .tab-btn { transition: all 0.2s ease; font-size: 7px; }
+        @media (min-width: 640px) { .tab-btn { font-size: 10px; } }
     </style>
 </head>
 <body class="bg-blue-50 text-slate-800 pb-20">
 
-    <header class="bg-rabbit text-white pb-12 pt-8 px-6 rounded-b-[3rem] shadow-xl text-center relative overflow-hidden border-b-4 border-blue-700">
-        <!-- 背景の装飾 -->
-        <div class="absolute top-0 right-0 w-32 h-32 opacity-10 transform translate-x-8 -translate-y-8">
-             
+    <header class="bg-rabbit text-white pb-10 pt-6 px-4 rounded-b-[2.5rem] shadow-xl text-center relative overflow-hidden">
+        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-2 rabbit-hop shadow-inner">
+            <span class="text-2xl">🐰</span>
         </div>
-        
-        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3 rabbit-hop shadow-inner">
-            <span class="text-3xl">🐰</span>
-        </div>
-        
-        <!-- ロゴ部分: Cooper風フォントに変更 -->
-        <h1 class="logo-font text-4xl md:text-5xl mb-1 drop-shadow-lg text-white">
-            Lucky Rabbit
-        </h1>
-        <p class="text-[10px] font-bold opacity-90 tracking-widest bg-blue-800/40 inline-block px-3 py-0.5 rounded-full">
-            KUKI CITY VOLLEYBALL CLUB
-        </p>
+        <h1 class="logo-font text-3xl md:text-5xl mb-1 drop-shadow-lg text-white">Lucky Rabbit</h1>
+        <p class="text-[8px] font-bold opacity-90 tracking-widest bg-blue-800/40 inline-block px-3 py-0.5 rounded-full">KUKI CITY VOLLEYBALL CLUB</p>
     </header>
 
-    <!-- Navigation (5つのタブ) -->
-    <nav class="max-w-md mx-auto -mt-6 px-2 grid grid-cols-5 gap-1 z-10 relative">
-        <button onclick="showTab('kids')" id="btn-kids" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-amber-400 flex flex-col items-center">
-            <span class="text-lg">👧</span><span class="text-[8px] font-bold">キッズ</span>
+    <!-- Navigation (6つのタブ) -->
+    <nav class="max-w-md mx-auto -mt-6 px-1 grid grid-cols-6 gap-0.5 z-10 relative">
+        <button onclick="showTab('kids')" id="btn-kids" class="tab-btn bg-white p-1.5 rounded-xl shadow-md border-b-4 border-amber-400 flex flex-col items-center">
+            <span class="text-base">👧</span><span class="font-bold">キッズ</span>
         </button>
-        <button onclick="showTab('parents')" id="btn-parents" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
-            <span class="text-lg">👩‍🏫</span><span class="text-[8px] font-bold">保護者</span>
+        <button onclick="showTab('parents')" id="btn-parents" class="tab-btn bg-white p-1.5 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-base">👩‍🏫</span><span class="font-bold">保護者</span>
         </button>
-        <button onclick="showTab('ops')" id="btn-ops" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
-            <span class="text-lg">📋</span><span class="text-[8px] font-bold">運営</span>
+        <button onclick="showTab('duty')" id="btn-duty" class="tab-btn bg-white p-1.5 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-base">🤝</span><span class="font-bold">当番</span>
         </button>
-        <button onclick="showTab('rules')" id="btn-rules" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
-            <span class="text-lg">🏐</span><span class="text-[8px] font-bold">ルール</span>
+        <button onclick="showTab('ops')" id="btn-ops" class="tab-btn bg-white p-1.5 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-base">📋</span><span class="font-bold">運営</span>
         </button>
-        <button onclick="showTab('gym')" id="btn-gym" class="tab-btn bg-white p-2 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
-            <span class="text-lg">🏫</span><span class="text-[8px] font-bold">体育館</span>
+        <button onclick="showTab('rules')" id="btn-rules" class="tab-btn bg-white p-1.5 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-base">🏐</span><span class="font-bold">ルール</span>
+        </button>
+        <button onclick="showTab('gym')" id="btn-gym" class="tab-btn bg-white p-1.5 rounded-xl shadow-md border-b-4 border-transparent opacity-60 flex flex-col items-center">
+            <span class="text-base">🏫</span><span class="font-bold">体育館</span>
         </button>
     </nav>
 
-    <main class="max-w-md mx-auto p-4 mt-4 min-h-[60vh]">
+    <main class="max-w-md mx-auto p-4 mt-4 min-h-[50vh]">
         <div id="content-area"></div>
     </main>
 
-    <footer class="max-w-md mx-auto p-8 text-center text-slate-400 text-[10px]">
-        <p class="font-bold text-slate-500 mb-1">白珪尚可磨（はっけいなおみがくべし）</p>
-        <div class="mt-4 opacity-50 italic">© 2026 Kuki Lucky Rabbit. Digital Portal v2.1</div>
-    </footer>
-
     <script>
-        // タブ切り替えと描画ロジック
         function showTab(tabId) {
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.add('opacity-60');
@@ -97,70 +73,56 @@
             const container = document.getElementById('content-area');
             let html = '';
 
-            // 各セクションの描画ロジック (data.jsを参照)
             if (tabId === 'kids') {
-                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">ラビッ子の目標！</h2>`;
+                html = `<h2 class="text-lg font-black text-center mb-4 text-blue-800">ラビッ子の目標！</h2>`;
                 rabbitData.kidsGoals.forEach(g => {
-                    html += `
-                        <div class="bg-white p-5 rounded-3xl shadow-sm border-l-8 border-${g.color}-400 mb-4 animate-fade-in">
-                            <h3 class="font-bold flex items-center text-lg mb-2"><span class="mr-2">${g.icon}</span> ${g.title}</h3>
-                            <ul class="text-sm text-slate-600 space-y-1">${g.items.map(i => `<li>・${i}</li>`).join('')}</ul>
-                        </div>`;
+                    html += `<div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-${g.color}-400 mb-3"><h3 class="font-bold text-sm mb-1">${g.icon} ${g.title}</h3><ul class="text-xs text-slate-600 space-y-0.5">${g.items.map(i => `<li>・${i}</li>`).join('')}</ul></div>`;
                 });
             } else if (tabId === 'parents') {
-                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">指導方針と規約</h2>`;
+                html = `<h2 class="text-lg font-black text-center mb-4 text-blue-800">指導方針と規約</h2>`;
                 rabbitData.policies.forEach(p => {
-                    html += `
-                        <div class="bg-white rounded-2xl shadow-sm border mb-4 overflow-hidden">
-                            <button onclick="this.nextElementSibling.classList.toggle('open')" class="w-full p-4 text-left font-bold bg-slate-50 flex justify-between hover:bg-slate-100 transition-colors">
-                                <span>${p.icon} ${p.title}</span><span>＋</span>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="p-4 text-sm text-slate-600 space-y-2 border-t">${p.content.map(c => `<p>・${c}</p>`).join('')}</div>
+                    html += `<div class="bg-white rounded-xl shadow-sm border mb-3 overflow-hidden"><button onclick="this.nextElementSibling.classList.toggle('open')" class="w-full p-3 text-left font-bold bg-slate-50 flex justify-between text-sm"><span>${p.icon} ${p.title}</span><span>＋</span></button><div class="accordion-content"><div class="p-3 text-xs text-slate-600 space-y-1 border-t">${p.content.map(c => `<p>・${c}</p>`).join('')}</div></div></div>`;
+                });
+            } else if (tabId === 'duty') {
+                html = `<h2 class="text-lg font-black text-center mb-4 text-blue-800">当番のお仕事 見える化</h2>
+                        <div class="space-y-6">
+                            <div class="bg-white p-5 rounded-3xl shadow-md border-t-8 border-amber-400">
+                                <h3 class="font-black text-amber-700 mb-3 flex items-center"><span class="mr-2">🏠</span> 練習のとき</h3>
+                                <ul class="space-y-3">
+                                    ${rabbitData.dutyTasks.practice.map(item => `
+                                        <li class="flex items-start gap-3">
+                                            <span class="mt-1 w-4 h-4 border-2 border-amber-200 rounded-full shrink-0 flex items-center justify-center text-[8px]">✓</span>
+                                            <div><p class="font-bold text-xs text-slate-800">${item.task}</p><p class="text-[10px] text-slate-500">${item.note}</p></div>
+                                        </li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="bg-white p-5 rounded-3xl shadow-md border-t-8 border-blue-500">
+                                <h3 class="font-black text-blue-700 mb-3 flex items-center"><span class="mr-2">🏆</span> 試合のとき</h3>
+                                <ul class="space-y-3">
+                                    ${rabbitData.dutyTasks.game.map(item => `
+                                        <li class="flex items-start gap-3">
+                                            <span class="mt-1 w-4 h-4 border-2 border-blue-200 rounded-full shrink-0 flex items-center justify-center text-[8px]">✓</span>
+                                            <div><p class="font-bold text-xs text-slate-800">${item.task}</p><p class="text-[10px] text-slate-500">${item.note}</p></div>
+                                        </li>`).join('')}
+                                </ul>
                             </div>
                         </div>`;
-                });
             } else if (tabId === 'ops') {
-                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">運営・アプリガイド</h2>
-                        <div class="bg-indigo-600 p-6 rounded-3xl text-white mb-6 shadow-lg relative overflow-hidden">
-                            <div class="absolute -right-4 -bottom-4 text-6xl opacity-10">📱</div>
-                            <h3 class="font-bold mb-3 flex items-center"><span class="mr-2 text-xl">📱</span> TeamHubの使い方</h3>
-                            <ul class="text-[11px] space-y-2 leading-tight">${rabbitData.operations.teamhub.map(t => `<li>・${t}</li>`).join('')}</ul>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-2xl shadow-sm border-t-4 border-blue-500">
-                                <h4 class="font-bold text-xs mb-2 text-blue-700">🚗 配車・精算</h4>
-                                <ul class="text-[10px] space-y-1 text-slate-600">${rabbitData.operations.carpool.map(c => `<li>・${c}</li>`).join('')}</ul>
-                            </div>
-                            <div class="bg-white p-4 rounded-2xl shadow-sm border-t-4 border-emerald-500">
-                                <h4 class="font-bold text-xs mb-2 text-emerald-700">💰 会計</h4>
-                                <ul class="text-[10px] space-y-1 text-slate-600">${rabbitData.operations.accounting.map(a => `<li>・${a}</li>`).join('')}</ul>
-                            </div>
+                html = `<h2 class="text-lg font-black text-center mb-4 text-blue-800">運営・アプリガイド</h2>
+                        <div class="bg-indigo-600 p-5 rounded-2xl text-white mb-4 shadow-lg"><h3 class="font-bold mb-2 text-xs flex items-center">📱 TeamHubの使い方</h3><ul class="text-[10px] space-y-1">${rabbitData.operations.teamhub.map(t => `<li>・${t}</li>`).join('')}</ul></div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded-xl shadow-sm border-t-4 border-blue-500"><h4 class="font-bold text-[10px] mb-1 text-blue-700">🚗 配車</h4><ul class="text-[8px] space-y-0.5 text-slate-600">${rabbitData.operations.carpool.map(c => `<li>・${c}</li>`).join('')}</ul></div>
+                            <div class="bg-white p-3 rounded-xl shadow-sm border-t-4 border-emerald-500"><h4 class="font-bold text-[10px] mb-1 text-emerald-700">💰 会計</h4><ul class="text-[8px] space-y-0.5 text-slate-600">${rabbitData.operations.accounting.map(a => `<li>・${a}</li>`).join('')}</ul></div>
                         </div>`;
             } else if (tabId === 'rules') {
-                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">バレーのルール</h2>`;
+                html = `<h2 class="text-lg font-black text-center mb-4 text-blue-800">バレーのルール</h2>`;
                 rabbitData.volleyballRules.forEach(r => {
-                    html += `
-                        <div class="bg-white p-5 rounded-3xl shadow-sm mb-4 border-b-2 border-blue-100">
-                            <p class="font-bold text-blue-700 text-sm mb-1 italic">Q. ${r.q}</p>
-                            <p class="text-sm text-slate-600 leading-relaxed">A. ${r.a}</p>
-                        </div>`;
+                    html += `<div class="bg-white p-4 rounded-2xl shadow-sm mb-3 border-b-2 border-blue-100"><p class="font-bold text-blue-700 text-xs mb-0.5">Q. ${r.q}</p><p class="text-xs text-slate-600">A. ${r.a}</p></div>`;
                 });
             } else if (tabId === 'gym') {
-                html = `<h2 class="text-xl font-black text-center mb-6 text-blue-800">体育館の利用ルール</h2>
-                        <div class="bg-rose-50 border-2 border-rose-200 p-4 rounded-2xl mb-6 text-[10px] text-rose-800 italic leading-snug">
-                            ⚠️ ${rabbitData.gymRules.notice}
-                        </div>
-                        <div class="space-y-3">`;
+                html = `<h2 class="text-lg font-black text-center mb-4 text-blue-800">体育館の利用</h2><div class="bg-rose-50 p-3 rounded-xl mb-4 text-[9px] text-rose-800 italic">⚠️ ${rabbitData.gymRules.notice}</div><div class="space-y-2">`;
                 rabbitData.gymRules.items.forEach(item => {
-                    html += `
-                        <div class="bg-white p-4 rounded-2xl shadow-sm flex items-start gap-3 border border-slate-100">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[8px] font-bold shrink-0 mt-1 uppercase">Must</span>
-                            <div>
-                                <h4 class="font-bold text-xs text-slate-800 mb-0.5">${item.title}</h4>
-                                <p class="text-[11px] text-slate-500 leading-tight">${item.desc}</p>
-                            </div>
-                        </div>`;
+                    html += `<div class="bg-white p-3 rounded-xl shadow-sm flex items-start gap-2 border border-slate-100"><span class="bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded text-[7px] font-bold mt-0.5">Must</span><div><h4 class="font-bold text-xs text-slate-800">${item.title}</h4><p class="text-[10px] text-slate-500 leading-tight">${item.desc}</p></div></div>`;
                 });
                 html += `</div>`;
             }
@@ -173,3 +135,4 @@
     </script>
 </body>
 </html>
+
