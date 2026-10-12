@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>久喜市ラッキーラビットスポーツ少年団</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', '"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#e0f2fe',
+                            DEFAULT: '#0ea5e9',
+                            dark: '#0284c7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .hero-pattern {
+            background-color: #f0f9ff;
+            background-image: radial-gradient(#bae6fd 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="text-gray-800 bg-gray-50 antialiased">
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-xl font-bold text-brand-dark flex items-center gap-2">
+                        <svg class="w-8 h-8 text-brand" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-5.5c-.83 0-1.5-.67-1.5-1.5S9.17 11.5 10 11.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM12 16c-1.48 0-2.75-.81-3.45-2H15.45c-.7 1.19-1.97 2-3.45 2z"/></svg>
+                        ラッキーラビット
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 hover:text-brand font-medium transition">団について</a>
+                    <a href="#goals" class="text-gray-600 hover:text-brand font-medium transition">目標と姿勢</a>
+                    <a href="#rules" class="text-gray-600 hover:text-brand font-medium transition">団則</a>
+                    <a href="#guidelines" class="text-gray-600 hover:text-brand font-medium transition">事故・保険</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-24 pb-32 lg:pt-36 lg:pb-40 overflow-hidden hero-pattern">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 mb-6">
+                バレーボールを通して<br class="hidden sm:block" />
+                <span class="text-brand">心と体を育もう</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 mb-10">
+                久喜市ラッキーラビットスポーツ少年団は、小学生を対象としたバレーボールクラブです。仲間と共に汗を流し、思いやりの心を育てます。
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#about" class="bg-brand text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-brand-dark transition transform hover:-translate-y-1">詳しく見る</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 relative inline-block">
+                団の目的
+                <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-brand rounded-full"></span>
+            </h2>
+            <div class="bg-brand-light/30 p-8 rounded-2xl shadow-sm border border-brand-light">
+                <p class="text-xl leading-relaxed text-gray-700">
+                    本団は、団員が協力してバレーボールを通して<br class="hidden md:block"/>
+                    <strong>健康な身体作り</strong>と<strong>思いやり</strong>、<br class="hidden md:block"/>
+                    <strong>信じ合う心を持つ心豊かな人間</strong>になることを目的とします。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="goals" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- 団員の目標 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-brand">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        団員の目標
+                    </h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start"><span class="bg-brand text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5 shrink-0">1</span>じょうぶな身体をつくるために、規則正しい生活と自主練習を心がけます。</li>
+                        <li class="flex items-start"><span class="bg-brand text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5 shrink-0">2</span>強い心をやしなうために、休まず、苦しい時も諦めずに頑張ります。</li>
+                        <li class="flex items-start"><span class="bg-brand text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5 shrink-0">3</span>バレーボールの技術をみがくために、基本を大切にし、良いプレーを学びます。</li>
+                        <li class="flex items-start"><span class="bg-brand text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5 shrink-0">4</span>チームワークを育てるために、友だちの意見を聞き、チームを最優先に考えます。</li>
+                        <li class="flex items-start"><span class="bg-brand text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5 shrink-0">5</span>りっぱな態度（マナー）を身につけるために、正しい挨拶と返事を徹底します。</li>
+                    </ul>
+                </div>
+
+                <!-- 指導者の基本姿勢 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-green-500">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        指導者の基本姿勢
+                    </h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>情熱と愛情と忍耐力を柱に、団員が常に目標を持って活動できるように指導します。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>各年代の発達段階に合わせた指導を行い、チーム内の相互啓発を促します。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>育成会（保護者）との対話を重んじ、団員の健康状態や性格を把握して安全管理を徹底します。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>スポーツの技術だけでなく、社会性や協調性など生涯スポーツの観点から人間形成を支援します。</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>スポーツ少年団の理念を理解し、正しい指導を行えるよう自己研鑽に努めます。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rules" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12 relative inline-block w-full">
+                <span class="relative z-10">久喜市ラッキーラビットスポーツ少年団・団則</span>
+                <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-brand rounded-full"></span>
+            </h2>
+
+            <div class="bg-gray-50 p-6 sm:p-10 rounded-2xl border border-gray-200 h-96 overflow-y-auto text-sm sm:text-base leading-relaxed space-y-6 shadow-inner">
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第1章 定義</h4>
+                    <p class="mb-2"><strong>第1条</strong> 久喜市ラッキーラビットスポーツ少年団は、スポーツを愛好する少女がバレーボールを中心とした活動を計画的に行うために組織された団体です。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第2章 目的</h4>
+                    <p class="mb-2"><strong>第2条</strong> 本団は、団員が協力してバレーボールを通して健康な身体作りと思いやり、信じ合う心を持つ心豊かな人間になることを目的とします。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第3章 名称</h4>
+                    <p class="mb-2"><strong>第3条</strong> 本団は、埼玉県久喜市ラッキーラビットスポーツ少年団と称します。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第4章 組織</h4>
+                    <p class="mb-2"><strong>第4条</strong> 本団は役員会の下に、次の三組織を置きます。<br>1 団員会　2 指導者会　3 育成会</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第5章 団員の資格と入退団</h4>
+                    <p class="mb-2"><strong>第5条</strong> 団員は、スポーツが好きでバレーボールによって、心身を鍛えようとする久喜市に在住、在勤者の子女で小学1年生から6年生までの児童を対象とします。但し、上記以外でも保護者の同意があれば役員会の了解を得て入団する事が出来ます。</p>
+                    <p class="mb-2"><strong>第6条</strong> 募集及び入退団は次の通りとします。<br>
+                    1 募集：原則として毎年9月と2月に募集活動を行います。<br>
+                    2 入団：正式入団は4月1日としますが、随時入団を認めます。保護者の許可を得て申込書を提出します。<br>
+                    3 退団：中途退団の場合は、速やかに団長宛に届け出ます。一度納入した団費等は、原則として返還しません。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第6章 指導者</h4>
+                    <p class="mb-2"><strong>第7条</strong> 指導者は、本団の目的に賛同し、団員の指導に情熱を持つ者とします。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第7章 遵守事項</h4>
+                    <p class="mb-2"><strong>第8条</strong> 団員及び保護者は、本団の目的を理解し、団則及び役員会の決定事項を遵守しなければなりません。</p>
+                    <p class="mb-2"><strong>第9条</strong> 団員は、練習及び試合等に際しては、指導者の指示に従い、安全に十分注意して活動しなければなりません。</p>
+                    <p class="mb-2"><strong>第10条</strong> 団員は、互いに協力し合い、礼儀正しく、スポーツマンシップに則った行動を心掛けなければなりません。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第8章 事故・負傷</h4>
+                    <p class="mb-2"><strong>第11条</strong> 活動中の事故・負傷については、速やかに指導者及び保護者に報告し、適切な処置をとります。</p>
+                    <p class="mb-2"><strong>第12条</strong> 本団は、スポーツ安全保険に加入します。活動中の事故・負傷については、当該保険の範囲内で対応するものとし、本団及び指導者はそれ以上の責任を負わないものとします。</p>
+                    <p class="mb-2"><strong>第13条</strong> 保険適用外の事案については、保護者と指導者及び役員会で誠意を持って協議します。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 border-l-4 border-brand pl-2 mb-2">第9章 育成会 / 第10章 役員会 / 第11章 会議 / 第12章 会計</h4>
+                    <p class="mb-2">各組織の構成、運営、総会、活動経費の管理についての規定です。（詳細は原本を参照）</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guidelines" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-red-50 border border-red-100 rounded-3xl p-8 md:p-12 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-red-100 rounded-full opacity-50"></div>
+                
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 relative z-10 flex items-center gap-3">
+                    <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    Lucky Rabbit Sports Club Accident Liability and Insurance Guidelines
+                </h2>
+                
+                <p class="text-gray-700 mb-8 leading-relaxed relative z-10 font-medium">
+                    団活動に際し、不慮の事故に備え、お互いの注意義務および責任範囲を明確にするための申合せ事項です。万が一事故が発生した場合、以下の内容に従って対処します。
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">1. 責任範囲と保険の適用</h4>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li>・活動中の事故による金銭的な負担は、<strong>加入しているスポーツ安全保険の給付範囲内</strong>とします。</li>
+                            <li>・保険給付以外の金銭的な負担については、指導者・育成会ともに責任を負いかねます。</li>
+                            <li>・団員以外（応援に来るご兄弟など）の事故については、保護者（引率者）の責任となります。</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">2. 事故防止の対策と義務</h4>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li>・<strong>スポーツ安全保険への未加入者は、団活動（練習等）に参加できません。</strong></li>
+                            <li>・保護者は、日頃から子どもの健康状態を把握し、無理のない範囲で参加させてください。</li>
+                            <li>・練習や試合を休む場合は、必ず指導者に理由を連絡してください。</li>
+                            <li>・遠隔地への遠征・移動時は、保護者の送迎などの協力をお願いします。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center items-center gap-2 mb-6 text-2xl font-bold">
+                <svg class="w-6 h-6 text-brand" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-5.5c-.83 0-1.5-.67-1.5-1.5S9.17 11.5 10 11.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM12 16c-1.48 0-2.75-.81-3.45-2H15.45c-.7 1.19-1.97 2-3.45 2z"/></svg>
+                久喜市ラッキーラビットスポーツ少年団
+            </div>
+            <p class="text-gray-400 text-sm mb-6">
+                小学生を対象としたバレーボールクラブ。新規団員は随時募集中です！
+            </p>
+            <div class="border-t border-gray-800 pt-8 mt-8">
+                <p class="text-gray-500 text-xs">
+                    &copy; 2026 久喜市ラッキーラビットスポーツ少年団. All rights reserved.<br>
+                    当サイトの規程・申合せ事項等は団の最新の決定に従い変更される場合があります。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
